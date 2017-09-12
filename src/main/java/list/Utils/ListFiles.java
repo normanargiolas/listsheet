@@ -1,8 +1,15 @@
 package list.Utils;
 
 import java.io.File;
+import java.util.Map;
 
 public class ListFiles {
+
+    String source;
+
+    public ListFiles(String source) {
+        this.source = source;
+    }
 
     /**
      * List all the files and folders from a directory
@@ -66,5 +73,10 @@ public class ListFiles {
                 listFilesAndFilesSubDirectories(file.getAbsolutePath());
             }
         }
+    }
+
+    public Map<String, Object[]> listFilesAndFilesSubDirectories() {
+
+        return null;
     }
 }
