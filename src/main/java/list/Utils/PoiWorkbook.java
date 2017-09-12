@@ -63,16 +63,18 @@ public class PoiWorkbook {
         iterateData(rowIdHeader, spreadsheet, header);
     }
 
-    private void iterateData(int rowIdHeader, XSSFSheet spreadsheet, Map<String, Object[]> header) {
-        Set<String> keyIdHeader = header.keySet();
-        XSSFRow row;
-        for (String key : keyIdHeader) {
-            row = spreadsheet.createRow(rowIdHeader++);
-            Object[] objectArr = header.get(key);
-            int cellid = 0;
-            for (Object obj : objectArr) {
-                Cell cell = row.createCell(cellid++);
-                cell.setCellValue((String) obj);
+    private void iterateData(int rowIdHeader, XSSFSheet spreadsheet, Map<String, Object[]> data) {
+        if (data != null) {
+            Set<String> keyIdHeader = data.keySet();
+            XSSFRow row;
+            for (String key : keyIdHeader) {
+                row = spreadsheet.createRow(rowIdHeader++);
+                Object[] objectArr = data.get(key);
+                int cellid = 0;
+                for (Object obj : objectArr) {
+                    Cell cell = row.createCell(cellid++);
+                    cell.setCellValue((String) obj);
+                }
             }
         }
     }
