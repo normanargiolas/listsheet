@@ -11,8 +11,8 @@ public class List {
     public static void main(String args[]) throws Exception {
         System.out.println("----------start");
 
-        final String sourceDirectory = "/home/norman/git/mappasistemi/main/workflows/";
-        final String fileNameXlsx = "workflows.xlsx";
+        final String sourceDirectory = "/source";
+        final String fileNameXlsx = "filename.xlsx";
         String sheetName = "Files Info";
 
 
