@@ -11,15 +11,15 @@ public class List {
     public static void main(String args[]) throws Exception {
         System.out.println("----------start");
 
-        final String sourceDirectory = "/home/norman/personal/java/list/src/";
-        final String fileNameXlsx = "Writesheet.xlsx";
+        final String sourceDirectory = "/home/norman/git/mappasistemi/main/workflows/";
+        final String fileNameXlsx = "workflows.xlsx";
         String sheetName = "Files Info";
 
 
         //This data needs to be written (Object[])
         Map<String, Object[]> header = new TreeMap<String, Object[]>();
         header.put("1", new Object[]{
-                "NOME FILE", "PERCORSO", "TIPOLOGIA", "DIMENSIONE"});
+                "FILE", "NOME FILE", "PERCORSO", "ESTENSIONE", "DIMENSIONE KB",});
 
 
         ListFiles listFilesUtil = new ListFiles(sourceDirectory);

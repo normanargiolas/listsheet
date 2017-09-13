@@ -1,7 +1,6 @@
 package list.Utils;
 
 import org.apache.commons.io.FilenameUtils;
-import org.apache.poi.ss.usermodel.Cell;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -92,22 +91,27 @@ public class ListFiles {
 
         int n = 1;
         for (String file : lists) {
-            System.out.println(file);
 
+            System.out.println(file);
             String ext = FilenameUtils.getExtension(file);
             String name = FilenameUtils.getBaseName(file);
-            File f = new File(file);
-            Long size = f.length();
+            if (!name.startsWith(".") && ext != "") {
 
-            float fileSizeInKB = 0;
-            if (size != null && size != 0) {
-                fileSizeInKB = (float) size / 1024;
+                File f = new File(file);
+                Long size = f.length();
+
+                float fileSizeInKB = 0;
+                if (size != null && size != 0) {
+                    fileSizeInKB = (float) size / 1024;
+                }
+
+
+                content.put(String.valueOf(n++), new Object[]{
+                        name + "." + ext, name, file, ext, String.valueOf(fileSizeInKB)});
             }
 
-
-            content.put(String.valueOf(n++), new Object[]{
-                    name, file, ext, String.valueOf(fileSizeInKB)});
         }
+
 
         return content;
     }
